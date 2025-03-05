@@ -7,6 +7,11 @@ const https = require('https');
 const { URL } = require('url');
 
 function GitCore() {
+
+    this.allow = async function (forWhom, methodName, ...args) {
+        return true;
+    }
+
     this.checkGitHubRepoVisibility = async function (repoUrl) {
         try {
             const url = new URL(repoUrl);
